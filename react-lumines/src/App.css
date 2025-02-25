@@ -56,6 +56,11 @@
   background-color: #bf6c1e;
 }
 
+.tile-reference {
+  display: flex;
+  gap: 12px;
+}
+
 .tile {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
