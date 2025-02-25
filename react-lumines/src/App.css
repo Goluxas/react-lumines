@@ -56,9 +56,16 @@
   background-color: #bf6c1e;
 }
 
+header {
+  display: flex;
+  justify-content: center;
+}
+
 .tile-reference {
   display: flex;
   gap: 12px;
+  position: absolute;
+  top: 50px;
 }
 
 .tile {

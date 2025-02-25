@@ -33,10 +33,10 @@ export default function Board() {
       </tr>
       <tr>
         <td>
-          <Pane color="off" key={9} />
+          <Pane color="white" key={9} />
         </td>
         <td>
-          <Pane color="off" key={10} />
+          <Pane color="white" key={10} />
         </td>
         <td>
           <Pane color="off" key={11} />
@@ -47,13 +47,13 @@ export default function Board() {
       </tr>
       <tr>
         <td>
-          <Pane color="off" key={13} />
+          <Pane color="white" key={13} />
         </td>
         <td>
-          <Pane color="off" key={14} />
+          <Pane color="color" key={14} />
         </td>
         <td>
-          <Pane color="off" key={15} />
+          <Pane color="white" key={15} />
         </td>
         <td>
           <Pane color="off" key={16} />
