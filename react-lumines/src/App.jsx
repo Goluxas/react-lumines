@@ -1,14 +1,15 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 import Board from "./components/Board";
+import TileReference from "./components/TileReference";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <Board />;
+  return (
+    <>
+      <TileReference />
+      <Board />
+    </>
+  );
 }
 
 export default App;

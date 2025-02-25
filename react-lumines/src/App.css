@@ -41,17 +41,24 @@
   color: #888;
 }
 
-.tile {
+.pane {
   display: block;
   width: 20px;
   height: 20px;
   border: 2px solid lightgrey;
 }
 
-.white-tile {
+.white-pane {
   background-color: #dfdfdf;
 }
 
-.color-tile {
+.color-pane {
   background-color: #bf6c1e;
+}
+
+.tile {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  width: 50px;
 }
