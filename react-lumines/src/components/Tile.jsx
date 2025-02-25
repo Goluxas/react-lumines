@@ -4,7 +4,7 @@ export function Pane({ color: initialColor, key, toggleable }) {
   const [color, setColor] = useState(initialColor);
 
   // Setting a default here, but not sure this is the best way
-  toggleable = toggleable ? toggleable : true;
+  toggleable = toggleable === undefined ? true : toggleable;
 
   function toggleColor() {
     setColor((prev) => {
@@ -27,7 +27,7 @@ export function Pane({ color: initialColor, key, toggleable }) {
   );
 }
 
-export default function Tile({ arrangement }) {
+export default function Tile({ arrangement, toggleable }) {
   /*
   arrangement = a four-character string that defines the configuration of a 2x2 tile
     using w, c, or . (dot).
@@ -39,6 +39,8 @@ export default function Tile({ arrangement }) {
               wc
   */
 
+  toggleable = toggleable === undefined ? true : toggleable;
+
   const colors = arrangement.split("").map((char) => {
     if (char === "w") return "white";
     if (char === "c") return "color";
@@ -47,10 +49,10 @@ export default function Tile({ arrangement }) {
 
   return (
     <section className="tile">
-      <Pane color={colors[0]} key={Math.random()} />
-      <Pane color={colors[1]} key={Math.random()} />
-      <Pane color={colors[2]} key={Math.random()} />
-      <Pane color={colors[3]} key={Math.random()} />
+      <Pane color={colors[0]} key={Math.random()} toggleable={false} />
+      <Pane color={colors[1]} key={Math.random()} toggleable={false} />
+      <Pane color={colors[2]} key={Math.random()} toggleable={false} />
+      <Pane color={colors[3]} key={Math.random()} toggleable={false} />
     </section>
   );
 }
