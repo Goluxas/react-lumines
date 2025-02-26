@@ -9,7 +9,7 @@ export default function TileReference() {
         <Tile arrangement="wwwc" rotateable={true} />
         <Tile arrangement="cccw" rotateable={true} />
         <Tile arrangement="wwcc" rotateable={true} />
-        <Tile arrangement="ccwc" rotateable={true} />
+        <Tile arrangement="wccw" rotateable={true} />
       </section>
     </header>
   );
