@@ -1,4 +1,4 @@
-import { Pane } from "./Tile";
+import { ToggleablePane } from "./Tile";
 
 export default function Board() {
   return (
@@ -6,58 +6,58 @@ export default function Board() {
       <tbody>
         <tr>
           <td>
-            <Pane color="off" keyProp={1} />
+            <ToggleablePane color="off" />
           </td>
           <td>
-            <Pane color="off" keyProp={2} />
+            <ToggleablePane color="off" />
           </td>
           <td>
-            <Pane color="off" keyProp={3} />
+            <ToggleablePane color="off" />
           </td>
           <td>
-            <Pane color="off" keyProp={4} />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <Pane color="off" keyProp={5} />
-          </td>
-          <td>
-            <Pane color="off" keyProp={6} />
-          </td>
-          <td>
-            <Pane color="off" keyProp={7} />
-          </td>
-          <td>
-            <Pane color="off" keyProp={8} />
+            <ToggleablePane color="off" />
           </td>
         </tr>
         <tr>
           <td>
-            <Pane color="white" keyProp={9} />
+            <ToggleablePane color="off" />
           </td>
           <td>
-            <Pane color="white" keyProp={10} />
+            <ToggleablePane color="off" />
           </td>
           <td>
-            <Pane color="off" keyProp={11} />
+            <ToggleablePane color="off" />
           </td>
           <td>
-            <Pane color="off" keyProp={12} />
+            <ToggleablePane color="off" />
           </td>
         </tr>
         <tr>
           <td>
-            <Pane color="white" keyProp={13} />
+            <ToggleablePane color="white" />
           </td>
           <td>
-            <Pane color="color" keyProp={14} />
+            <ToggleablePane color="white" />
           </td>
           <td>
-            <Pane color="white" keyProp={15} />
+            <ToggleablePane color="off" />
           </td>
           <td>
-            <Pane color="off" keyProp={16} />
+            <ToggleablePane color="off" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <ToggleablePane color="white" />
+          </td>
+          <td>
+            <ToggleablePane color="color" />
+          </td>
+          <td>
+            <ToggleablePane color="white" />
+          </td>
+          <td>
+            <ToggleablePane color="off" />
           </td>
         </tr>
       </tbody>

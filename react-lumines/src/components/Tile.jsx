@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-export function Pane({ color: initialColor, keyProp, toggleable }) {
-  const [color, setColor] = useState(initialColor);
+export function TilePane({ color }) {
+  return <div className={`pane ${color}-pane`}></div>;
+}
 
-  // Setting a default here, but not sure this is the best way
-  toggleable = toggleable === undefined ? true : toggleable;
+export function ToggleablePane({ color: initialColor }) {
+  const [color, setColor] = useState(initialColor);
 
   function toggleColor() {
     setColor((prev) => {
@@ -18,16 +19,10 @@ export function Pane({ color: initialColor, keyProp, toggleable }) {
     });
   }
 
-  return (
-    <div
-      key={keyProp}
-      className={`pane ${color}-pane`}
-      onClick={toggleable ? toggleColor : null}
-    ></div>
-  );
+  return <div className={`pane ${color}-pane`} onClick={toggleColor}></div>;
 }
 
-export default function Tile({ arrangement, toggleable, rotateable, tileId }) {
+export default function Tile({ arrangement, toggleable, rotateable }) {
   /*
   arrangement = a four-character string that defines the configuration of a 2x2 tile
     using w, c, or . (dot).
@@ -63,10 +58,10 @@ export default function Tile({ arrangement, toggleable, rotateable, tileId }) {
 
   return (
     <section className="tile" onClick={rotateable ? rotate : null}>
-      <Pane color={colors[0]} keyProp={Math.random()} toggleable={false} />
-      <Pane color={colors[1]} keyProp={Math.random()} toggleable={false} />
-      <Pane color={colors[2]} keyProp={Math.random()} toggleable={false} />
-      <Pane color={colors[3]} keyProp={Math.random()} toggleable={false} />
+      <TilePane color={colors[0]} />
+      <TilePane color={colors[1]} />
+      <TilePane color={colors[2]} />
+      <TilePane color={colors[3]} />
     </section>
   );
 }
