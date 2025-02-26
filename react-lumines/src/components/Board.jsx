@@ -1,66 +1,30 @@
+import { useState } from "react";
 import { ToggleablePane } from "./Tile";
 
+function stringToBoardState(strState) {
+  return strState
+    .replace(/\s+/g, "") // \s is any whitespace character
+    .split("")
+    .map((char) => {
+      if (char === "w") return "white";
+      if (char === "c") return "color";
+      return "off";
+    });
+}
+
+const initialBoardState = `........
+                           ........
+                           ........
+                           ........
+                           ww......
+                           wcw.....`;
+
 export default function Board() {
-  return (
-    <table>
-      <tbody>
-        <tr>
-          <td>
-            <ToggleablePane color="off" />
-          </td>
-          <td>
-            <ToggleablePane color="off" />
-          </td>
-          <td>
-            <ToggleablePane color="off" />
-          </td>
-          <td>
-            <ToggleablePane color="off" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <ToggleablePane color="off" />
-          </td>
-          <td>
-            <ToggleablePane color="off" />
-          </td>
-          <td>
-            <ToggleablePane color="off" />
-          </td>
-          <td>
-            <ToggleablePane color="off" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <ToggleablePane color="white" />
-          </td>
-          <td>
-            <ToggleablePane color="white" />
-          </td>
-          <td>
-            <ToggleablePane color="off" />
-          </td>
-          <td>
-            <ToggleablePane color="off" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <ToggleablePane color="white" />
-          </td>
-          <td>
-            <ToggleablePane color="color" />
-          </td>
-          <td>
-            <ToggleablePane color="white" />
-          </td>
-          <td>
-            <ToggleablePane color="off" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  );
+  const [board, setBoard] = useState(stringToBoardState(initialBoardState));
+
+  const boardPanes = board.map((paneColor) => (
+    <ToggleablePane key={Math.random()} color={paneColor} />
+  ));
+
+  return <section className="play-board">{boardPanes}</section>;
 }

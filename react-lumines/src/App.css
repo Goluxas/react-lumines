@@ -41,6 +41,13 @@
   color: #888;
 }
 
+.play-board {
+  display: grid;
+  grid-template-columns: repeat(8, 20px);
+  grid-template-rows: repeat(6, 20px);
+  gap: 6px;
+}
+
 .pane {
   display: block;
   width: 20px;
@@ -70,7 +77,7 @@ header {
 
 .tile {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  width: 50px;
+  grid-template-columns: repeat(2, 20px);
+  grid-template-rows: repeat(2, 20px);
+  gap: 6px;
 }
