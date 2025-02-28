@@ -15,7 +15,7 @@ function App() {
   return (
     <main>
       <TileReference selectTile={selectTile} />
-      <Board />
+      <Board selectedTile={selectedTile} />
     </main>
   );
 }

@@ -16,7 +16,7 @@ let initialBoardState = BoardHandler.generateBlankBoard()
   .dropTile("cwww", 2)
   .dropTile("wwww", 3);
 
-export default function Board() {
+export default function Board({ selectedTile }) {
   const [board, setBoard] = useState(initialBoardState.asArray());
 
   function togglePane(id) {
@@ -28,7 +28,9 @@ export default function Board() {
     );
   }
 
-  const dropButtons = new Array(16).fill(0).map((_) => <button>⬇️</button>);
+  const dropButtons = new Array(16)
+    .fill(0)
+    .map((_) => <button key={nanoid()}>⬇️</button>);
 
   const boardPanes = board.map((pane) => (
     <ToggleablePane
@@ -41,7 +43,9 @@ export default function Board() {
 
   return (
     <section>
-      <section className="drop-buttons">{dropButtons}</section>
+      {selectedTile !== undefined && (
+        <section className="drop-buttons">{dropButtons}</section>
+      )}
       <section className="play-board">{boardPanes}</section>
     </section>
   );
