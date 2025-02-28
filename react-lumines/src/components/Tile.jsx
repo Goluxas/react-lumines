@@ -15,7 +15,7 @@ export function ToggleablePane({ id, color, handleClick }) {
   );
 }
 
-export default function Tile({ arrangement, toggleable, rotateable }) {
+export default function Tile({ id, arrangement, handleClick }) {
   /*
   arrangement = a four-character string that defines the configuration of a 2x2 tile
     using w, c, or . (dot).
@@ -26,31 +26,15 @@ export default function Tile({ arrangement, toggleable, rotateable }) {
     "wwwc" => ww
               wc
   */
-  const [colorKey, setColorKey] = useState(arrangement);
 
-  toggleable = toggleable === undefined ? true : toggleable;
-  rotateable = rotateable === undefined ? false : rotateable;
-
-  function rotate() {
-    setColorKey((prev) => {
-      /*
-      ww               ww    cw    wc
-      wc -> rotated -> cw -> ww -> ww
-      */
-      const newColorKey = prev[2] + prev[0] + prev[3] + prev[1];
-      console.log(newColorKey);
-      return newColorKey;
-    });
-  }
-
-  const colors = colorKey.split("").map((char) => {
+  const colors = arrangement.split("").map((char) => {
     if (char === "w") return "white";
     if (char === "c") return "color";
     return "off";
   });
 
   return (
-    <section className="tile" onClick={rotateable ? rotate : null}>
+    <section className="tile" onClick={() => handleClick(id)}>
       <TilePane color={colors[0]} />
       <TilePane color={colors[1]} />
       <TilePane color={colors[2]} />
