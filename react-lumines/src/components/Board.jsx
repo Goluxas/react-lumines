@@ -28,9 +28,25 @@ export default function Board({ selectedTile }) {
     );
   }
 
-  const dropButtons = new Array(16)
-    .fill(0)
-    .map((_) => <button key={nanoid()}>⬇️</button>);
+  function drop(arrangement, position) {
+    setBoard((prevBoard) => {
+      console.log(`Dropping ${arrangement} at ${position}`);
+      const newBoard = new BoardHandler(prevBoard).dropTile(
+        arrangement,
+        position
+      );
+
+      // This succeeds but doesn't re-render the grid until I click
+      // to toggle another pane. Why?
+      return newBoard.asArray().map((pane) => ({ ...pane }));
+    });
+  }
+
+  const dropButtons = new Array(16).fill(0).map((_, idx) => (
+    <button key={`drop-button-${idx}`} onClick={() => drop(selectedTile, idx)}>
+      ⬇️
+    </button>
+  ));
 
   const boardPanes = board.map((pane) => (
     <ToggleablePane

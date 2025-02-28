@@ -31,7 +31,7 @@ export function cycleColor(color) {
 
 export class Board {
   constructor(boardArray) {
-    this.board = boardArray;
+    this.board = boardArray.map((pane) => ({ ...pane }));
   }
 
   static generateBlankBoard() {
