@@ -4,22 +4,15 @@ export function TilePane({ color }) {
   return <div className={`pane ${color}-pane`}></div>;
 }
 
-export function ToggleablePane({ color: initialColor }) {
-  const [color, setColor] = useState(initialColor);
-
-  function toggleColor() {
-    setColor((prev) => {
-      if (prev === "off") {
-        return "white";
-      } else if (prev === "white") {
-        return "color";
-      } else {
-        return "off";
-      }
-    });
-  }
-
-  return <div className={`pane ${color}-pane`} onClick={toggleColor}></div>;
+export function ToggleablePane({ id, color, handleClick }) {
+  return (
+    <div
+      className={`pane ${color}-pane`}
+      onClick={() => {
+        handleClick(id);
+      }}
+    ></div>
+  );
 }
 
 export default function Tile({ arrangement, toggleable, rotateable }) {
