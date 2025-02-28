@@ -11,7 +11,10 @@ import { Board as BoardHandler, cycleColor } from "../boardHandler";
 //                            ww......
 //                            wcw.....`;
 
-let initialBoardState = BoardHandler.generateBlankBoard().dropTile("wwwc", 0);
+let initialBoardState = BoardHandler.generateBlankBoard()
+  .dropTile("wcww", 0)
+  .dropTile("cwww", 2)
+  .dropTile("wwww", 3);
 
 export default function Board() {
   const [board, setBoard] = useState(initialBoardState.asArray());

@@ -50,6 +50,7 @@ export class Board {
   getPane(x, y) {
     /*
      Top Left of board is (0,0), Bottom Right is (boardwidth-1, boardheight-1)
+     x = column, y = row
     */
     return this.board[x + y * BOARD_WIDTH];
   }
@@ -64,9 +65,9 @@ export class Board {
   }
 
   firstLit(column) {
-    for (let i = 0; i < BOARD_HEIGHT; i++) {
-      if (this.getPane(i, column).color !== "off") {
-        return i;
+    for (let row = 0; row < BOARD_HEIGHT; row++) {
+      if (this.getPane(column, row).color !== "off") {
+        return row;
       }
     }
     return BOARD_HEIGHT; // Nothing lit, return boardHeight
@@ -77,13 +78,13 @@ export class Board {
      *
      * Both columns of the tile will fall until they meet a lit panel in the board.
      */
-    const colA_y = this.firstLit(column) - 1;
-    const colB_y = this.firstLit(column + 1) - 1;
+    const colA_r = this.firstLit(column) - 1;
+    const colB_r = this.firstLit(column + 1) - 1;
 
-    this.setPane(column, colA_y - 1, tilePanes[0]);
-    this.setPane(column, colA_y, tilePanes[2]);
-    this.setPane(column + 1, colB_y - 1, tilePanes[1]);
-    this.setPane(column + 1, colB_y, tilePanes[3]);
+    this.setPane(column, colA_r - 1, tilePanes[0]);
+    this.setPane(column, colA_r, tilePanes[2]);
+    this.setPane(column + 1, colB_r - 1, tilePanes[1]);
+    this.setPane(column + 1, colB_r, tilePanes[3]);
 
     return this;
   }
