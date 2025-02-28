@@ -22,15 +22,32 @@ export function cycleColor(color) {
   else return "off";
 }
 
-export function generateBlankBoard() {
-  return new Array(BOARD_SIZE).fill(0).map((_) => ({
-    id: nanoid(),
-    color: "off",
-  }));
+export class Board {
+  constructor(boardArray) {
+    this.board = boardArray;
+  }
+
+  static generateBlankBoard() {
+    return new Board(
+      new Array(BOARD_SIZE).fill(0).map((_) => ({
+        id: nanoid(),
+        color: "off",
+      }))
+    );
+  }
+
+  asArray() {
+    return this.board;
+  }
 }
+
+export function firstLit(board, column) {}
 
 export function dropTile(board, tilePanes, column) {
   /* Drop the tile described by tilePanes in the zero-indexed column.
+   *
+   * Both columns of the tile will fall until they meet a lit panel in the board.
    */
+  firstLit(board, column);
   return board;
 }

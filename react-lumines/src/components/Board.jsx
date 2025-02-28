@@ -2,12 +2,7 @@ import { useState } from "react";
 import { ToggleablePane } from "./Tile";
 
 import { nanoid } from "nanoid";
-import {
-  generateBlankBoard,
-  stringToBoardState,
-  cycleColor,
-  dropTile,
-} from "../boardHandler";
+import { Board as BoardHandler, cycleColor, dropTile } from "../boardHandler";
 
 // const initialBoardState = `........
 //                            ........
@@ -16,10 +11,14 @@ import {
 //                            ww......
 //                            wcw.....`;
 
-const initialBoardState = dropTile(generateBlankBoard(), "wwwc", 0);
+const initialBoardState = dropTile(
+  BoardHandler.generateBlankBoard(),
+  "wwwc",
+  0
+);
 
 export default function Board() {
-  const [board, setBoard] = useState(initialBoardState);
+  const [board, setBoard] = useState(initialBoardState.asArray());
 
   function togglePane(id) {
     setBoard((prevBoard) =>
