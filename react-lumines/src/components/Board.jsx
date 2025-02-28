@@ -28,6 +28,8 @@ export default function Board() {
     );
   }
 
+  const dropButtons = new Array(16).fill(0).map((_) => <button>⬇️</button>);
+
   const boardPanes = board.map((pane) => (
     <ToggleablePane
       key={pane.id}
@@ -37,5 +39,10 @@ export default function Board() {
     />
   ));
 
-  return <section className="play-board">{boardPanes}</section>;
+  return (
+    <section>
+      <section className="drop-buttons">{dropButtons}</section>
+      <section className="play-board">{boardPanes}</section>
+    </section>
+  );
 }

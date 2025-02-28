@@ -13,10 +13,10 @@ function App() {
   }
 
   return (
-    <>
+    <main>
       <TileReference selectTile={selectTile} />
       <Board />
-    </>
+    </main>
   );
 }
 
