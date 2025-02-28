@@ -16,7 +16,7 @@ function rotateClockwise(arrangement) {
   return arrangement[2] + arrangement[0] + arrangement[3] + arrangement[1];
 }
 
-export default function TileReference({ handleClick }) {
+export default function TileReference({ selectTile }) {
   const [tileColors, setTileColors] = useState(BASIC_TILES);
 
   function rotate(id) {
@@ -36,7 +36,7 @@ export default function TileReference({ handleClick }) {
   const referenceTiles = tileColors.map((tile) => (
     <section key={tile.id} className="tile-reference-tile">
       <Tile id={tile.id} arrangement={tile.arrangement} handleClick={rotate} />
-      <button>Pick</button>
+      <button onClick={() => selectTile(tile.arrangement)}>Pick</button>
     </section>
   ));
 
